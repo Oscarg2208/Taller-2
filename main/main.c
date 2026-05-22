@@ -42,4 +42,20 @@ adc_oneshot_config_channel(
 gptimer_new_timer(
     &timer_config,
     &gptimer);
-    
+gptimer_event_callbacks_t cbs =
+{
+    .on_alarm = timer_callback
+};
+gptimer_register_event_callbacks(
+    gptimer,
+    &cbs,
+    NULL);
+    gptimer_alarm_config_t alarm_config =
+{
+    .alarm_count = 10000,
+    .reload_count = 0,
+    .flags.auto_reload_on_alarm = true
+};
+gptimer_set_alarm_action(
+    gptimer,
+    &alarm_config);    
