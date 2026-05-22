@@ -32,4 +32,14 @@ adc_oneshot_config_channel(
     adc_handle,
     ADC_CHANNEL_6,
     &config);
-      
+    gptimer_handle_t gptimer = NULL;
+    gptimer_config_t timer_config =
+{
+    .clk_src = GPTIMER_CLK_SRC_DEFAULT,
+    .direction = GPTIMER_COUNT_UP,
+    .resolution_hz = 1000000
+};
+gptimer_new_timer(
+    &timer_config,
+    &gptimer);
+    
