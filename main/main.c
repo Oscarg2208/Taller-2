@@ -12,3 +12,8 @@ int leds[] = {2, 4, 5, 18, 19};
 
 int direccion = 1;
 bool pausa_total = false; 
+
+void IRAM_ATTR boton_pausa_isr(void *arg)
+{
+    pausa_total = true;
+}
