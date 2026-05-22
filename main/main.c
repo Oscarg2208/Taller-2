@@ -17,3 +17,18 @@ void IRAM_ATTR boton_pausa_isr(void *arg)
 {
     pausa_total = true;
 }
+for (int i = 0; i < NUM_LEDS; i++)
+{
+    gpio_reset_pin(leds[i]);
+    gpio_set_direction(leds[i], GPIO_MODE_OUTPUT);
+}
+gpio_reset_pin(BTN_DIRECCION);
+
+gpio_set_direction(BTN_DIRECCION, GPIO_MODE_INPUT);
+
+gpio_set_pull_mode(BTN_DIRECCION, GPIO_PULLUP_ONLY);
+gpio_set_intr_type(BTN_PAUSA, GPIO_INTR_NEGEDGE);
+
+gpio_install_isr_service(0);
+
+gpio_isr_handler_add(BTN_PAUSA, boton_pausa_isr, NULL);
