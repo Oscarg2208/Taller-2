@@ -13,3 +13,6 @@
 int angulos[] = {0, 45, 90, 135, 180};
 
 int indice = 0;
+
+uint32_t angle_to_duty(int angle)
+
