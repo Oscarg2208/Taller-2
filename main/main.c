@@ -45,5 +45,7 @@ ledc_channel_config_t channel_conf =
 };
 ledc_channel_config(&channel_conf);
 if (gpio_get_level(BTN_PIN) == 0)
-int angulo = angulos[indice];Obtiene el ángulo actual desde el arreglo.
+int angulo = angulos[indice];
+uint32_t duty = angle_to_duty(angulo);
+
 
