@@ -40,3 +40,17 @@ if (gpio_get_level(BTN_DIRECCION) == 0)
 
     vTaskDelay(pdMS_TO_TICKS(300));
 }
+if (pausa_total)
+{
+    pausa_total = false;
+
+    printf("PAUSA ACTIVADA\n");
+    for (int i = 0; i < NUM_LEDS; i++)
+{
+    gpio_set_level(leds[i], 1);
+}
+vTaskDelay(pdMS_TO_TICKS(5000));
+for (int i = 0; i < NUM_LEDS; i++)
+{
+    gpio_set_level(leds[i], 0);
+}
