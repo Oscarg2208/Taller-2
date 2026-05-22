@@ -20,4 +20,9 @@ int max_pulse = 2500;
 int pulse_width = min_pulse +
                   ((max_pulse - min_pulse) * angle / 180);
                   int duty = (pulse_width * 8191) / 20000;
-                  
+                  gpio_reset_pin(BTN_PIN);
+
+gpio_set_direction(BTN_PIN, GPIO_MODE_INPUT);
+
+gpio_set_pull_mode(BTN_PIN, GPIO_PULLUP_ONLY);
+
