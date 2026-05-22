@@ -32,3 +32,11 @@ gpio_set_intr_type(BTN_PAUSA, GPIO_INTR_NEGEDGE);
 gpio_install_isr_service(0);
 
 gpio_isr_handler_add(BTN_PAUSA, boton_pausa_isr, NULL);
+if (gpio_get_level(BTN_DIRECCION) == 0)
+{
+    direccion = -direccion;
+
+    printf("Cambio de direccion\n");
+
+    vTaskDelay(pdMS_TO_TICKS(300));
+}
