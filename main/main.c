@@ -44,5 +44,5 @@ ledc_channel_config_t channel_conf =
     .hpoint = 0
 };
 ledc_channel_config(&channel_conf);
-
+if (gpio_get_level(BTN_PIN) == 0)
 
