@@ -16,3 +16,20 @@ static bool IRAM_ATTR timer_callback(
 
     return false;
 }
+adc_oneshot_unit_init_cfg_t init_config =
+{
+    .unit_id = ADC_UNIT_1
+};
+adc_oneshot_new_unit(
+    &init_config,
+    &adc_handle);
+  adc_oneshot_chan_cfg_t config =
+{
+    .bitwidth = ADC_BITWIDTH_DEFAULT,
+    .atten = ADC_ATTEN_DB_12
+};
+adc_oneshot_config_channel(
+    adc_handle,
+    ADC_CHANNEL_6,
+    &config);
+      
