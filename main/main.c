@@ -55,5 +55,13 @@ ledc_set_duty(
     LEDC_HIGH_SPEED_MODE,
     LEDC_CHANNEL_0);
     printf("Angulo: %d grados\n", angulo);
+    indice++;
+
+if (indice >= 5)
+{
+    indice = 0;
+}
+vTaskDelay(pdMS_TO_TICKS(400));
+
 
 
