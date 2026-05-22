@@ -54,3 +54,21 @@ for (int i = 0; i < NUM_LEDS; i++)
 {
     gpio_set_level(leds[i], 0);
 }
+gpio_set_level(leds[posicion], 1);
+
+printf("LED %d ON\n", posicion + 1);
+
+vTaskDelay(pdMS_TO_TICKS(200));
+
+gpio_set_level(leds[posicion], 0);
+posicion += direccion;
+if (posicion >= NUM_LEDS)
+{
+    posicion = NUM_LEDS - 2;
+    direccion = -1;
+}
+if (posicion < 0)
+{
+    posicion = 1;
+    direccion = 1;
+}
