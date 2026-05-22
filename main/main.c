@@ -47,5 +47,9 @@ ledc_channel_config(&channel_conf);
 if (gpio_get_level(BTN_PIN) == 0)
 int angulo = angulos[indice];
 uint32_t duty = angle_to_duty(angulo);
+ledc_set_duty(
+    LEDC_HIGH_SPEED_MODE,
+    LEDC_CHANNEL_0,
+    duty);
 
 
