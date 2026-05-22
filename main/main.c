@@ -15,4 +15,9 @@ int angulos[] = {0, 45, 90, 135, 180};
 int indice = 0;
 
 uint32_t angle_to_duty(int angle)
-
+int min_pulse = 500;
+int max_pulse = 2500;
+int pulse_width = min_pulse +
+                  ((max_pulse - min_pulse) * angle / 180);
+                  int duty = (pulse_width * 8191) / 20000;
+                  
