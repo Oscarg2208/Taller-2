@@ -43,5 +43,5 @@ ledc_channel_config_t channel_conf =
     .duty = 0,
     .hpoint = 0
 };
-
+ledc_channel_config(&channel_conf);
 
