@@ -34,4 +34,14 @@ ledc_timer_config_t timer_conf =
     .clk_cfg = LEDC_AUTO_CLK
 };
 ledc_timer_config(&timer_conf);
+ledc_channel_config_t channel_conf =
+{
+    .gpio_num = SERVO_PIN,
+    .speed_mode = LEDC_HIGH_SPEED_MODE,
+    .channel = LEDC_CHANNEL_0,
+    .timer_sel = LEDC_TIMER_0,
+    .duty = 0,
+    .hpoint = 0
+};
+
 
