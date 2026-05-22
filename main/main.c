@@ -25,4 +25,13 @@ int pulse_width = min_pulse +
 gpio_set_direction(BTN_PIN, GPIO_MODE_INPUT);
 
 gpio_set_pull_mode(BTN_PIN, GPIO_PULLUP_ONLY);
+ledc_timer_config_t timer_conf =
+{
+    .speed_mode = LEDC_HIGH_SPEED_MODE,
+    .timer_num = LEDC_TIMER_0,
+    .duty_resolution = PWM_RESOLUTION,
+    .freq_hz = PWM_FREQUENCY,
+    .clk_cfg = LEDC_AUTO_CLK
+};
+ledc_timer_config(&timer_conf);
 
