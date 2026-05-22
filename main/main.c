@@ -51,5 +51,9 @@ ledc_set_duty(
     LEDC_HIGH_SPEED_MODE,
     LEDC_CHANNEL_0,
     duty);
+    ledc_update_duty(
+    LEDC_HIGH_SPEED_MODE,
+    LEDC_CHANNEL_0);
+    printf("Angulo: %d grados\n", angulo);
 
 
